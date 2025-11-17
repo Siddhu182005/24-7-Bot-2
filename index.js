@@ -4,7 +4,8 @@ function start() {
   const bot = mineflayer.createBot({
     host: "Pros67.aternos.me",
     port: 26392,
-    username: "BotName"
+    username: "Alvish_Bhai",
+    version: false
   })
 
   bot.on('login', () => {
@@ -18,8 +19,8 @@ function start() {
     }, 2000)
   })
 
-  bot.on('end', () => setTimeout(start, 3000))
-  bot.on('error', () => {})
+  bot.on('end', () => setTimeout(start, 5000))
+  bot.on('error', () => setTimeout(start, 5000))
 }
 
 start()
