@@ -1,19 +1,25 @@
-const mineflayer = require('mineflayer');
+const mineflayer = require('mineflayer')
 
-function createBot() {
+function start() {
   const bot = mineflayer.createBot({
-    host: "YOUR_ATERNOS_IP",
-    port: YOUR_PORT,
+    host: "Pros67.aternos.me",
+    port: 26392,
     username: "BotName"
-  });
+  })
 
-  bot.on('login', () => console.log('Bot Joined!'));
-  bot.on('chat', (username, message) => {
-    if (username === bot.username) return;
-    if (message === 'hi') bot.chat('Hello!');
-  });
+  bot.on('login', () => {
+    setInterval(() => {
+      bot.setControlState("forward", true)
+      bot.setControlState("jump", true)
+      setTimeout(() => {
+        bot.setControlState("forward", false)
+        bot.setControlState("jump", false)
+      }, 500)
+    }, 2000)
+  })
 
-  bot.on('end', createBot);
+  bot.on('end', () => setTimeout(start, 3000))
+  bot.on('error', () => {})
 }
 
-createBot();
+start()
