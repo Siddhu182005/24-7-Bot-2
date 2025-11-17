@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "mineflayer": "^4.20.0"
+    "mineflayer": "github:PrismarineJS/mineflayer#master"
   },
   "scripts": {
     "start": "node index.js"
